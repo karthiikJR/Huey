@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz@9..40&family=DotGothic16&display=swap');
+
 * {
   margin: 0;
   outline: 0;
   box-sizing: border-box;
   padding: 0;
+  /* overflow: hidden; */
   list-style: none;
   text-decoration: none;
   scroll-behavior: smooth;
@@ -12,4 +15,92 @@
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and IE 11 */
   user-select: none; /* Standard syntax */
+}
+
+input[type=range] {
+  height: 23px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  margin: 10px 0;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  height: 8px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 1px 1px 1px #F2EEFF;
+  background: #131313;
+  border-radius: 50px;
+  border: 1px solid #F2EEFF;
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 1px 1px 0px #F2EEFF;
+  border: 1px solid #F2EEFF;
+  height: 15px;
+  width: 15px;
+  border-radius: 0px;
+  background: #DE7850;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -4.5px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #131313;
+}
+input[type=range]::-moz-range-track {
+  height: 8px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 1px 1px 1px #F2EEFF;
+  background: #131313;
+  border-radius: 50px;
+  border: 1px solid #F2EEFF;
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: 1px 1px 0px #F2EEFF;
+  border: 1px solid #F2EEFF;
+  height: 15px;
+  width: 15px;
+  border-radius: 0px;
+  background: #DE7850;
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  height: 8px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: #131313;
+  border: 1px solid #F2EEFF;
+  border-radius: 100px;
+  box-shadow: 1px 1px 1px #F2EEFF;
+}
+input[type=range]::-ms-fill-upper {
+  background: #131313;
+  border: 1px solid #F2EEFF;
+  border-radius: 100px;
+  box-shadow: 1px 1px 1px #F2EEFF;
+}
+input[type=range]::-ms-thumb {
+  margin-top: 1px;
+  box-shadow: 1px 1px 0px #F2EEFF;
+  border: 1px solid #F2EEFF;
+  height: 15px;
+  width: 15px;
+  border-radius: 0px;
+  background: #FFF06B;
+  cursor: pointer;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: #131313;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: #131313;
 }
