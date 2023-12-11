@@ -3,7 +3,7 @@ import {
 	GoPlus,
 	MdOutlineGradient,
 	MdImageSearch,
-	MdViewComfy,
+	FaFont,
 	MdShare,
 	FaHeart,
 	GiHamburgerMenu,
@@ -62,7 +62,15 @@ function ToolBar({ arrayOfColors, setArrayOfColors, generateColors }) {
 		},
 		{
 			icon: (
-				<MdShare className="w-6 h-6 hover:text-white transition-all duration-300" />
+				<FaFont className="w-6 h-6 hover:text-white transition-all duration-300" />
+			),
+			func: () => {
+				navigate("/fonts");
+			},
+		},
+		{
+			icon: (
+				<MdShare className="w-6 h-6 hover:text-white transition-all min-[375px]:block hidden duration-300" />
 			),
 			func: () => {},
 		},

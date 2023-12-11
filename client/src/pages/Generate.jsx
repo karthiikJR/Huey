@@ -20,7 +20,7 @@ function Generate() {
 		}
 	}, [id]); // Add id as a dependency to the useEffect
 	return (
-		<div className="mt-32 sm:mt-16">
+		<div className="mt-32 sm:mt-16 h-full">
 			<DisplayPalette
 				arrayOfColors={arrayOfColors}
 				setArrayOfColors={setArrayOfColors}

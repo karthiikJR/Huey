@@ -51,7 +51,7 @@ function About() {
 	];
 
 	return (
-		<div className="h-full mt-16 sm:mt-0">
+		<div className="h-full overflow-x-hidden mt-16 sm:mt-0">
 			<section className="relative h-screen w-full sm:py-40 py-10 bg-dark text-light font-primary px-5 md:px-32">
 				<div>
 					<h1 className="sm:text-7xl text-5xl leading-[1.2]">
@@ -94,7 +94,7 @@ function About() {
 						technology and gaming. Whether I'm immersed in the virtual worlds of
 						gaming or sculpting in 3D, I find joy in the blend of creativity and
 						technology. Let's create something amazing together!
-						<span className="flex gap-5">
+						<span className="flex gap-2 sm:gap-5">
 							<a
 								href="https://www.linkedin.com/in/karthik-j-rao/"
 								target="_blank"
