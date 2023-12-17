@@ -1,9 +1,21 @@
-import { FaLock, FaUnlock, FaPlus, FaHeart, FaFont } from "react-icons/fa";
+import {
+	FaLock,
+	FaUnlock,
+	FaPlus,
+	FaHeart,
+	FaFont,
+	FaFilePdf,
+} from "react-icons/fa";
+import { FaLink } from "react-icons/fa6";
 import { HiClipboardCopy } from "react-icons/hi";
 import { GoPlus } from "react-icons/go";
 import { HiMinusCircle } from "react-icons/hi2";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { IoMdClose, IoIosColorPalette } from "react-icons/io";
+import {
+	IoMdClose,
+	IoIosColorPalette,
+	IoIosCodeDownload,
+} from "react-icons/io";
 
 import {
 	MdOutlineGradient,
@@ -34,4 +46,7 @@ export {
 	IoIosColorPalette,
 	MdColorize,
 	FaFont,
+	FaFilePdf,
+	FaLink,
+	IoIosCodeDownload,
 };

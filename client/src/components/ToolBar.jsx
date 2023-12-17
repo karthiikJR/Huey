@@ -10,7 +10,8 @@ import {
 } from "../assets/icons";
 import { getSingleRandomColor } from "../helpers/utils";
 import { useNavigate } from "react-router-dom";
-// import Dialog from "./Dialog";
+import ShareDialog from "./ShareDialog";
+// import GradientDialog from "./GradientDialog";
 
 let count = 1;
 
@@ -72,7 +73,10 @@ function ToolBar({ arrayOfColors, setArrayOfColors, generateColors }) {
 			icon: (
 				<MdShare className="w-6 h-6 hover:text-white transition-all min-[375px]:block hidden duration-300" />
 			),
-			func: () => {},
+			func: () => {
+				const shareDialog = document.getElementById("shareDialog");
+				shareDialog.showModal();
+			},
 		},
 		{
 			icon: (
@@ -83,7 +87,8 @@ function ToolBar({ arrayOfColors, setArrayOfColors, generateColors }) {
 	];
 	return (
 		<>
-			{/* <Dialog arrayOfColors={arrayOfColors} /> */}
+			{/* <GradientDialog arrayOfColors={arrayOfColors} /> */}
+			<ShareDialog arrayOfColors={arrayOfColors} />
 			<div className="sm:px-5 px-2 bg-dark border-t border-b border-light text-light/50 font-primary h-16 flex items-center justify-between">
 				<p className="sm:inline-block hidden ">
 					Press the spacebar to generate new Hues!

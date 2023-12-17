@@ -20,7 +20,7 @@ function FromImageCardGroup({ numberOfHues, colorPalette }) {
 					? ""
 					: colorPalette
 							.filter((_, index) => index < numberOfHues)
-							.map((color) => <FromImageCard key={index} RGB={color} />)}
+							.map((color, index) => <FromImageCard key={index} RGB={color} />)}
 			</section>
 			{colorPalette === null ? (
 				""

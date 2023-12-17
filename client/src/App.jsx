@@ -7,6 +7,8 @@ import GenerateFromImage from "./pages/GenerateFromImage/GenerateFromImage";
 import Fonts from "./pages/Fonts";
 import About from "./pages/About";
 import "./App.css";
+import ExportColors from "./components/ExportColors";
+import Error from "./pages/Error";
 
 function App() {
 	return (
@@ -21,6 +23,8 @@ function App() {
 				<Route path="/gradient/:id" element={<Gradient />}></Route>
 				<Route path="/about/" element={<About />}></Route>
 				<Route path="/fonts/" element={<Fonts />}></Route>
+				<Route path="/colorsExport/:id" element={<ExportColors />}></Route>
+				<Route path="/*" element={<Error />}></Route>
 			</Routes>
 		</BrowserRouter>
 	);

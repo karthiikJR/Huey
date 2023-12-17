@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { MdOutlineSelectAll, MdDeselect, IoMdClose } from "../assets/icons";
 import { useNavigate } from "react-router-dom";
 
-function Dialog({ arrayOfColors }) {
+function GradientDialog({ arrayOfColors }) {
 	const navigate = useNavigate();
 	const [gradients, setGradients] = useState([]);
 
@@ -57,7 +57,7 @@ function Dialog({ arrayOfColors }) {
 						const modal = document.getElementById("gradientModal");
 						modal.close();
 					}}
-					className="cursor-pointer border "
+					className="cursor-pointer border"
 				/>
 			</h1>
 			<div className="px-5 py-2 flex gap-3 font-secondary sm:gap-5 justify-center items-center flex-col">
@@ -100,4 +100,4 @@ function Dialog({ arrayOfColors }) {
 	);
 }
 
-export default Dialog;
+export default GradientDialog;
