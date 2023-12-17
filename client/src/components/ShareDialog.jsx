@@ -10,7 +10,7 @@ function ShareDialog({ arrayOfColors }) {
 			text +
 			`/generate/${arrayOfColors.map((color) => color.hex.slice(1)).join("-")}`;
 		navigator.clipboard.writeText(url);
-		toast.success("CSS import copied :)", {
+		toast.success("Link copied successfully :)", {
 			position: "bottom-center",
 			className: "text-light bg-dark font-secondary",
 		});
