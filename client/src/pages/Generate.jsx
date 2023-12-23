@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import DisplayPalette from "../components/DIsplayPalette";
+import DisplayPalette from "../components/DisplayPalette";
 import Layout from "../components/sharedComponents/Layout";
 
 import { getRandomColors } from "../helpers/utils";
