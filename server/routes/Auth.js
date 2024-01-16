@@ -4,9 +4,11 @@ import {
 	LoginUser,
 	RefreshTokens,
 } from "../controllers/UserController.js";
+import cookieParser from "cookie-parser";
 
 const router = express.Router();
 router.use(express.json());
+app.use(cookieParser());
 
 router.post("/register", (req, res) => {
 	CreateUser(req, res);

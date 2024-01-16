@@ -2,11 +2,9 @@ import React, { useState } from "react";
 import { IoMdClose } from "../assets/icons";
 import { checkForValidToken, getDataFromLocalStorage } from "../helpers/utils";
 import { jwtDecode } from "jwt-decode";
-import { useNavigate } from "react-router-dom";
 import { AxiosAuth } from "../helpers/utils";
 
 function LikeDialog({ arrayOfColors }) {
-	const navigate = useNavigate();
 	const [paletteName, setPaletteName] = useState("");
 
 	const storeColorPlatte = async () => {
