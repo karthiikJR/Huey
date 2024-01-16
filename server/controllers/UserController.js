@@ -20,7 +20,7 @@ export const LoginUser = async (req, res) => {
 		return res
 			.status(201)
 			.cookie("refreshToken", refreshToken, {
-				sameSite: "strict",
+				sameSite: "none",
 				path: "/",
 				expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
 				httpOnly: true,
@@ -80,7 +80,7 @@ export const RefreshTokens = async (req, res) => {
 		return res
 			.status(200)
 			.cookie("refreshToken", refreshToken, {
-				sameSite: "strict",
+				sameSite: "none",
 				path: "/",
 				expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
 				httpOnly: true,
