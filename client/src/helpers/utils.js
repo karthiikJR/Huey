@@ -1,4 +1,28 @@
 import { colors } from "./data/Colors";
+import { jwtDecode } from "jwt-decode";
+import axios from "axios";
+
+const req = axios.create({
+	withCredentials: true,
+	baseURL: import.meta.env.VITE_BACKEND_URL,
+});
+
+req.interceptors.request.use(async (config) => {
+	let currentTime = new Date();
+	const token = getDataFromLocalStorage("user");
+	const { exp } = jwtDecode(token);
+	if (exp * 1000 < currentTime.getTime()) {
+		const response = await req.get("/auth/refresh");
+		if (response.status === 200) setDataToLocalStorage("user", response.data);
+		else {
+			removeDataFromLocalStorage("user");
+			alert("Session expired. Please login again");
+		}
+	}
+	return config;
+});
+
+export { req as AxiosAuth };
 
 const colorNames = Object.keys(colors);
 const hexToColorNameMap = Object.fromEntries(
@@ -95,3 +119,31 @@ function componentToHex(c) {
 export function rgbToHex(r, g, b) {
 	return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
 }
+
+export const setDataToLocalStorage = (key, value) => {
+	localStorage.setItem(key, JSON.stringify(value));
+};
+
+export const getDataFromLocalStorage = (key) => {
+	return localStorage.getItem(key);
+};
+
+export const removeDataFromLocalStorage = (key) => {
+	localStorage.removeItem(key);
+};
+
+export const checkForValidToken = async (token) => {
+	if (token === null || !token) return false;
+	const { exp } = jwtDecode(token);
+	const currentTime = Date.now() / 1000;
+	if (exp < currentTime) {
+		const response = await req.get("/auth/refresh");
+
+		if (response.status === 200) {
+			setDataToLocalStorage("user", response.data);
+			return true;
+		}
+		return false;
+	}
+	return true;
+};

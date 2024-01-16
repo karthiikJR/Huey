@@ -39,7 +39,7 @@ function Navbar() {
 					<Link
 						onClick={toggleButton}
 						className="hover:text-orange  transition-transformAndopacity hover:tracking-widest opacity-0 translate-y-20 delay-[0.6s]"
-						to="/"
+						to="/profile"
 					>
 						Profile
 					</Link>

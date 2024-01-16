@@ -1,52 +1,58 @@
+// Import Statements
+import { CiEdit } from "react-icons/ci";
 import {
-	FaLock,
-	FaUnlock,
-	FaPlus,
-	FaHeart,
-	FaFont,
 	FaFilePdf,
+	FaFont,
+	FaHeart,
+	FaLink,
+	FaLock,
+	FaPlus,
+	FaUnlock,
 } from "react-icons/fa";
-import { FaLink } from "react-icons/fa6";
-import { HiClipboardCopy } from "react-icons/hi";
-import { GoPlus } from "react-icons/go";
-import { HiMinusCircle } from "react-icons/hi2";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { GoPlus } from "react-icons/go";
+import { HiClipboardCopy, HiMinusCircle } from "react-icons/hi";
 import {
-	IoMdClose,
-	IoIosColorPalette,
 	IoIosCodeDownload,
+	IoIosColorPalette,
+	IoIosOpen,
+	IoMdClose,
 } from "react-icons/io";
-
 import {
-	MdOutlineGradient,
-	MdImageSearch,
-	MdViewComfy,
-	MdShare,
-	MdOutlineSelectAll,
-	MdDeselect,
 	MdColorize,
+	MdDelete,
+	MdDeselect,
+	MdImageSearch,
+	MdOutlineGradient,
+	MdOutlineSelectAll,
+	MdShare,
+	MdViewComfy,
 } from "react-icons/md";
 
+// Export Statements
 export {
-	FaLock,
-	FaUnlock,
-	HiClipboardCopy,
-	GoPlus,
-	HiMinusCircle,
-	GiHamburgerMenu,
-	MdOutlineGradient,
-	MdImageSearch,
-	MdViewComfy,
-	MdShare,
-	FaPlus,
-	FaHeart,
-	MdOutlineSelectAll,
-	MdDeselect,
-	IoMdClose,
-	IoIosColorPalette,
-	MdColorize,
-	FaFont,
+	CiEdit,
 	FaFilePdf,
+	FaFont,
+	FaHeart,
 	FaLink,
+	FaLock,
+	FaPlus,
+	FaUnlock,
+	GiHamburgerMenu,
+	GoPlus,
+	HiClipboardCopy,
+	HiMinusCircle,
 	IoIosCodeDownload,
+	IoIosColorPalette,
+	IoIosOpen,
+	IoMdClose,
+	MdColorize,
+	MdDelete,
+	MdDeselect,
+	MdImageSearch,
+	MdOutlineGradient,
+	MdOutlineSelectAll,
+	MdShare,
+	MdViewComfy,
 };

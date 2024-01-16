@@ -11,7 +11,7 @@ import {
 import { getSingleRandomColor } from "../helpers/utils";
 import { useNavigate } from "react-router-dom";
 import ShareDialog from "./ShareDialog";
-// import GradientDialog from "./GradientDialog";
+import LikeDialog from "./LikeDialog";
 
 let count = 1;
 
@@ -38,24 +38,22 @@ function ToolBar({ arrayOfColors, setArrayOfColors, generateColors }) {
 			icon: (
 				<GoPlus
 					id="AddColor"
-					className="w-6 h-6 transition-all duration-300 rotate-0 hover:text-white"
+					className="min-[400px]:h-6 h-4 min-[400px]:w-8 w-4 transition-all duration-300 rotate-0 hover:text-white"
 				/>
 			),
 			func: plusBtnFunction,
 		},
 		{
 			icon: (
-				<MdOutlineGradient className="w-6 h-6 hover:text-white transition-all duration-300" />
+				<MdOutlineGradient className="min-[400px]:h-6 h-4 min-[400px]:w-8 w-4 hover:text-white transition-all duration-300" />
 			),
 			func: () => {
-				// const modal = document.getElementById("gradientModal");
-				// modal.showModal();
-				// navigate("/gradient");
+				navigate("/gradient");
 			},
 		},
 		{
 			icon: (
-				<MdImageSearch className="w-6 h-6 hover:text-white transition-all duration-300" />
+				<MdImageSearch className="min-[400px]:h-6 h-4 min-[400px]:w-8 w-4 hover:text-white transition-all duration-300" />
 			),
 			func: () => {
 				navigate("/generate/image");
@@ -63,7 +61,7 @@ function ToolBar({ arrayOfColors, setArrayOfColors, generateColors }) {
 		},
 		{
 			icon: (
-				<FaFont className="w-6 h-6 hover:text-white transition-all duration-300" />
+				<FaFont className="min-[400px]:h-6 h-4 min-[400px]:w-8 w-4 hover:text-white transition-all duration-300" />
 			),
 			func: () => {
 				navigate("/fonts");
@@ -71,7 +69,7 @@ function ToolBar({ arrayOfColors, setArrayOfColors, generateColors }) {
 		},
 		{
 			icon: (
-				<MdShare className="w-6 h-6 hover:text-white transition-all min-[375px]:block hidden duration-300" />
+				<MdShare className="min-[400px]:h-6 h-4 min-[400px]:w-8 w-4 hover:text-white transition-all duration-300" />
 			),
 			func: () => {
 				const shareDialog = document.getElementById("shareDialog");
@@ -80,14 +78,17 @@ function ToolBar({ arrayOfColors, setArrayOfColors, generateColors }) {
 		},
 		{
 			icon: (
-				<FaHeart className="w-6 h-6 hover:text-white transition-all min-[375px]:block hidden duration-300" />
+				<FaHeart className="min-[400px]:h-6 h-4 min-[400px]:w-8 w-4 hover:text-white transition-all duration-300" />
 			),
-			func: () => {},
+			func: () => {
+				const likeDialog = document.getElementById("likeDialog");
+				likeDialog.showModal();
+			},
 		},
 	];
 	return (
 		<>
-			{/* <GradientDialog arrayOfColors={arrayOfColors} /> */}
+			<LikeDialog arrayOfColors={arrayOfColors} />
 			<ShareDialog arrayOfColors={arrayOfColors} />
 			<div className="sm:px-5 px-2 bg-dark border-t border-b border-light text-light/50 font-primary h-16 flex items-center justify-between">
 				<p className="sm:inline-block hidden ">
@@ -96,11 +97,11 @@ function ToolBar({ arrayOfColors, setArrayOfColors, generateColors }) {
 
 				<button
 					onClick={generateColors}
-					className="sm:hidden block h-10 border border-light/50 rounded-lg px-2"
+					className="sm:hidden block h-10 border border-light/50 text-sm rounded-lg px-2"
 				>
 					Generate
 				</button>
-				<div className="flex gap-3 sm:gap-5">
+				<div className="flex gap-3 ">
 					{buttonIcons.map((button, index) => {
 						return (
 							<button onClick={button.func} key={index}>
@@ -108,10 +109,6 @@ function ToolBar({ arrayOfColors, setArrayOfColors, generateColors }) {
 							</button>
 						);
 					})}
-
-					<button className=" font-secondary group w-8 h-8 border border-dashed hover:border-dotted transition-all flex justify-center items-center">
-						<GiHamburgerMenu className="w-4 h-4" />
-					</button>
 				</div>
 			</div>
 		</>

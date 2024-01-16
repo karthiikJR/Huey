@@ -23,7 +23,9 @@ function DisplayPalette({ arrayOfColors, setArrayOfColors }) {
 
 	useEffect(() => {
 		const handleKeyDown = (e) => {
+			const likeModal = document.getElementById("likeDialog");
 			if (e.keyCode === 32) {
+				if (likeModal.open) return;
 				e.preventDefault();
 				setLockedColors((prevLockedColors) => {
 					let index = arrayOfColors.length;

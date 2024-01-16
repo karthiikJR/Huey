@@ -9,6 +9,8 @@ import About from "./pages/About";
 import "./App.css";
 import ExportColors from "./components/ExportColors";
 import Error from "./pages/Error";
+import Auth from "./pages/Auth";
+import Profile from "./pages/Profile";
 
 function App() {
 	return (
@@ -24,6 +26,8 @@ function App() {
 				<Route path="/about/" element={<About />}></Route>
 				<Route path="/fonts/" element={<Fonts />}></Route>
 				<Route path="/colorsExport/:id" element={<ExportColors />}></Route>
+				<Route path="/auth" element={<Auth />}></Route>
+				<Route path="/profile" element={<Profile />}></Route>
 				<Route path="/*" element={<Error />}></Route>
 			</Routes>
 		</BrowserRouter>

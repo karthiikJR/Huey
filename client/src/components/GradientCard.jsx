@@ -2,10 +2,7 @@ import React from "react";
 import noise_light from "../assets/noise_light.png";
 import noise from "../assets/noise.svg";
 
-function GradientCard({ id, colors }) {
-	const getColors = () => {
-		return colors[Math.floor(Math.random() * colors.length)];
-	};
+function GradientCard({ id }) {
 	const gradientStyles = [
 		{
 			id: 1,

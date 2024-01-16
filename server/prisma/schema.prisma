@@ -1,0 +1,34 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  username  String   @unique
+  email     String   @unique
+  aboutMe   String?
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Color     Color[]
+}
+
+model ColorSet {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  name         String
+  listOfColors String[]
+  Color        Color    @relation(fields: [colorId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  colorId      String   @db.ObjectId
+}
+
+model Color {
+  id       String     @id @default(auto()) @map("_id") @db.ObjectId
+  userId   String     @db.ObjectId
+  user     User       @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  colorset ColorSet[]
+}

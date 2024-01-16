@@ -30,7 +30,6 @@ const ExportColors = () => {
 
 	const { id } = useParams();
 	const arrayOfColors = id.split("-");
-	console.log(arrayOfColors);
 	return (
 		<div
 			id="ColorExport"
