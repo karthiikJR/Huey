@@ -3,20 +3,23 @@ import { jwtDecode } from "jwt-decode";
 import axios from "axios";
 
 const req = axios.create({
-	withCredentials: true,
 	baseURL: import.meta.env.VITE_BACKEND_URL,
+	withCredentials: true,
 });
 
 req.interceptors.request.use(async (config) => {
 	let currentTime = new Date();
 	const token = getDataFromLocalStorage("user");
-	const { exp } = jwtDecode(token);
-	if (exp * 1000 < currentTime.getTime()) {
-		const response = await req.get("/auth/refresh");
-		if (response.status === 200) setDataToLocalStorage("user", response.data);
-		else {
-			removeDataFromLocalStorage("user");
-			alert("Session expired. Please login again");
+	if (config.url !== "/auth/refresh") {
+		const { exp } = jwtDecode(token);
+		if (exp * 1000 < currentTime.getTime()) {
+			const response = req.get("/auth/refresh");
+
+			if (response.status === 200) setDataToLocalStorage("user", response.data);
+			else {
+				removeDataFromLocalStorage("user");
+				alert("Session expired. Please login again");
+			}
 		}
 	}
 	return config;

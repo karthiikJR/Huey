@@ -5,7 +5,6 @@ import HueyVideo from "../assets/HueyHeroSection.webm";
 import arrow from "../assets/arrow.svg";
 
 function Home() {
-	console.log(import.meta.env.VITE_BACKEND_URL);
 	const navigate = useNavigate();
 	const navToGenerate = () => {
 		navigate("/generate");

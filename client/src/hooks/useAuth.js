@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { setDataToLocalStorage } from "../helpers/utils";
 import { useNavigate } from "react-router-dom";
-axios.create({
+const reqAuth = axios.create({
 	baseURL: import.meta.env.VITE_BACKEND_URL,
 	withCredentials: true,
 });
@@ -26,7 +26,7 @@ function useAuth() {
 			return alert("Passwords do not match");
 		}
 
-		axios
+		reqAuth
 			.post("/auth/register", {
 				email,
 				password,
@@ -46,7 +46,7 @@ function useAuth() {
 	const login = (e) => {
 		setLoading(true);
 		e.preventDefault();
-		axios
+		reqAuth
 			.post("/auth/login", {
 				email: loginEmail,
 				password: loginPassword,
