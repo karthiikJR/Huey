@@ -3,7 +3,7 @@ import axios from "axios";
 import { setDataToLocalStorage } from "../helpers/utils";
 import { useNavigate } from "react-router-dom";
 axios.create({
-	baseURL: "https://huey-backend.onrender.com",
+	baseURL: import.meta.env.VITE_BACKEND_URL,
 	withCredentials: true,
 });
 
