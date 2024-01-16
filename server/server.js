@@ -3,6 +3,9 @@ import { AuthRoutes } from "./routes/Auth.js";
 import { ColorAuth } from "./routes/Colors.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 
 const corsOptions = {

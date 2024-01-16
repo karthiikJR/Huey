@@ -1,6 +1,5 @@
 import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcrypt";
-import dotenv from "dotenv";
 import {
 	generateSessionToken,
 	generateRefreshToken,
@@ -8,7 +7,6 @@ import {
 import { checkPassword } from "../utils/utils.js";
 import Jwt from "jsonwebtoken";
 
-dotenv.config();
 const prisma = new PrismaClient();
 
 const SALT = process.env.SALT;
