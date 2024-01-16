@@ -15,5 +15,5 @@ export const generateRefreshToken = (user) => {
 		id: user.id,
 		username: user.username,
 	};
-	return Jwt.sign(payload, SECRET_KEY, { expiresIn: "7d" });
+	return Jwt.sign(payload, SECRET_KEY);
 };
