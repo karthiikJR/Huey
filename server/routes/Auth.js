@@ -8,7 +8,7 @@ import cookieParser from "cookie-parser";
 
 const router = express.Router();
 router.use(express.json());
-app.use(cookieParser());
+router.use(cookieParser());
 
 router.post("/register", (req, res) => {
 	CreateUser(req, res);
