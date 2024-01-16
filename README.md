@@ -98,6 +98,8 @@ Huey simplifies color selection, making it a valuable tool for designers and dev
 
 ![image](https://github.com/karthiikJR/Huey/assets/115890844/baf2347e-c472-4125-8702-1c7805ee6670)
 
+![image](https://github.com/karthiikJR/Huey/assets/115890844/81e1a220-392c-40e6-9839-c19f219fba54)
+
 ![image](https://github.com/karthiikJR/Huey/assets/115890844/9c69533d-9163-46b2-b0b0-ef918fcd7c4a)
 
 ![image](https://github.com/karthiikJR/Huey/assets/115890844/c26f4891-ba07-42e8-aa98-aeb5d0b3d09a)
