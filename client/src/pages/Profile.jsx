@@ -24,14 +24,36 @@ function Profile() {
 		}
 		const decoded = jwtDecode(user);
 		setUsername(decoded.username);
+		// refreshPalettes();
+	}, []);
+
+	useEffect(() => {
 		refreshPalettes();
 	}, [username]);
 
 	const refreshPalettes = async () => {
-		const decoded = jwtDecode(user);
-		const response = await AxiosAuth.get("/colors/get?userId=" + decoded.id);
-		setPalettes(response.data);
+		try {
+			const decoded = jwtDecode(user);
+			const response = await AxiosAuth.get("/colors/get?userId=" + decoded.id);
+
+			// Assuming each palette has a unique 'id'
+			const newPalettes = response.data;
+
+			// Update the state by replacing existing palettes with new ones
+			setPalettes((prevPalettes) => {
+				// Filter out palettes that are deleted
+				const updatedPalettes = prevPalettes.filter((existingPalette) =>
+					newPalettes.some((newPalette) => newPalette.id === existingPalette.id)
+				);
+
+				// Add new palettes
+				return [...newPalettes];
+			});
+		} catch (error) {
+			console.error("Error refreshing palettes:", error);
+		}
 	};
+
 
 	const openGenerator = (color) => {
 		navigate("/generate/" + color.map((c) => c.split("#")[1]).join("-"));
