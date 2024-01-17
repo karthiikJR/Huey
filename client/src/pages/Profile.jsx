@@ -16,7 +16,7 @@ function Profile() {
 	const user = getDataFromLocalStorage("user");
 	const navigate = useNavigate();
 	const [username, setUsername] = useState("");
-	const [palettes, setPalettes] = useState(null);
+	const [palettes, setPalettes] = useState([]);
 	useEffect(() => {
 		if (user === null || user === undefined) {
 			navigate("/auth");
@@ -54,7 +54,7 @@ function Profile() {
 		if (response.status === 200) refreshPalettes((prev) => !prev.id !== id);
 	};
 
-	const logoutUser = async () => {;
+	const logoutUser = async () => {
 		await AxiosAuth.get("/auth/logout")
 			.then((response) => {
 				console.log(response);
@@ -95,7 +95,7 @@ function Profile() {
 								key={palette.id}
 							>
 								<div className="w-80 h-28 flex flex-row rounded-lg overflow-hidden">
-									{palette.listOfColors.map((color, index) => (
+									{palette?.listOfColors?.map((color, index) => (
 										<div
 											key={index}
 											className="group w-full h-full flex justify-center items-center flex-1 hover:flex-[2] transition-all cursor-pointer"
