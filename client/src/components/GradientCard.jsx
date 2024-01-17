@@ -1,5 +1,5 @@
 import React from "react";
-import noise_light from "../assets/noise_light.png";
+import toast, { Toaster } from "react-hot-toast";
 import noise from "../assets/noise.svg";
 
 function GradientCard({ id }) {
@@ -30,20 +30,32 @@ function GradientCard({ id }) {
 		},
 	];
 
+	const copyToClipboard = (text) => {
+		navigator.clipboard.writeText(text);
+		toast.success("CSS Gradient copied :)", {
+			position: "bottom-center",
+			className: "text-light bg-dark font-secondary",
+		});
+	};
+
 	return (
-		<div
-			className="relative w-80 h-96 self-center font-primary"
-			style={{
-				background: gradientStyles[id].style,
-			}}
-		>
-			{/* <h1 className="relative z-10 py-5 text-xl text-center shadow-sm bg-dark/30"></h1> */}
-			<img
-				className="absolute top-0 w-full h-full opacity-30"
-				src={noise}
-				alt="noise"
-			/>
-		</div>
+		<>
+			<div
+				onClick={() => copyToClipboard(gradientStyles[id].style)}
+				className="relative w-80 h-96 self-center font-primary cursor-pointer"
+				style={{
+					background: gradientStyles[id].style,
+				}}
+			>
+				{" "}
+				<img
+					className="absolute top-0 w-full h-full opacity-30"
+					src={noise}
+					alt="noise"
+				/>
+			</div>
+			<Toaster />
+		</>
 	);
 }
 

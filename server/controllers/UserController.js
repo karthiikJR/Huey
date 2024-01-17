@@ -60,7 +60,7 @@ export const CreateUser = async (req, res) => {
 	return res
 		.status(201)
 		.cookie("refreshToken", refreshToken, {
-			sameSite: "strict",
+			sameSite: "none",
 			path: "/",
 			expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
 			httpOnly: true,
@@ -84,10 +84,25 @@ export const RefreshTokens = async (req, res) => {
 				path: "/",
 				expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
 				httpOnly: true,
+				secure: true,
 			})
 			.json({
 				sessionToken,
 				message: "Successfully refreshed token",
 			});
 	});
+};
+
+export const LogoutUser = async (req, res) => {
+	console.log("logout");
+	return res
+		.status(200)
+		.clearCookie("refreshToken", {
+			sameSite: "none",
+			path: "/",
+			expires: new Date(0),
+			httpOnly: true,
+			secure: true,
+		})
+		.json({ message: "Successfully logged out" });
 };

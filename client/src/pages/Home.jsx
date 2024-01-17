@@ -1,7 +1,7 @@
-import React from 'react'
-import Layout from "../components/sharedComponents/Layout";
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import HueyVideo from "../assets/HueyHeroSection.webm";
+import HueyVideoMP4 from "../assets/HueyHeroSectionMP4.mp4";
 import arrow from "../assets/arrow.svg";
 
 function Home() {
@@ -36,6 +36,7 @@ function Home() {
 					playsInline
 				>
 					<source src={HueyVideo} type="video/webm" />
+					<source src={HueyVideoMP4} type="video/mp4" />
 				</video>
 				<p
 					onClick={navToGenerate}
@@ -53,4 +54,4 @@ function Home() {
 	);
 }
 
-export default Home
+export default Home;

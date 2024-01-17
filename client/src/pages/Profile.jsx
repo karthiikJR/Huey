@@ -54,6 +54,18 @@ function Profile() {
 		if (response.status === 200) refreshPalettes((prev) => !prev.id !== id);
 	};
 
+	const logoutUser = async () => {;
+		await AxiosAuth.get("/auth/logout")
+			.then((response) => {
+				console.log(response);
+				removeDataFromLocalStorage("user");
+				navigate("/");
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	};
+
 	return (
 		<Layout>
 			<Toaster />
@@ -68,10 +80,7 @@ function Profile() {
 					<h1 className="sm:text-4xl text-2xl font-bold block">{username}</h1>
 
 					<button
-						onClick={() => {
-							removeDataFromLocalStorage("user");
-							navigate("/");
-						}}
+						onClick={logoutUser}
 						className="bg-dark px-4 py-2 rounded-lg border border-light/20 hover:bg-transparent transition-all"
 					>
 						Logout

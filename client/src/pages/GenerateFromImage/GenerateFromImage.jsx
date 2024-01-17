@@ -47,7 +47,7 @@ function GenerateFromImage() {
 	};
 
 	return (
-		<div className=" mt-16 p-2 min-h-screen w-full font-primary text-white bg-dark">
+		<div className=" mt-16 p-2 min-h-[calc(100vh-4rem)] w-full font-primary text-white bg-dark">
 			<input
 				id="fileInput"
 				type="file"

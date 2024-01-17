@@ -2,6 +2,7 @@ import express from "express";
 import {
 	CreateUser,
 	LoginUser,
+	LogoutUser,
 	RefreshTokens,
 } from "../controllers/UserController.js";
 import cookieParser from "cookie-parser";
@@ -20,6 +21,10 @@ router.post("/login", (req, res) => {
 
 router.get("/refresh", (req, res) => {
 	RefreshTokens(req, res);
+});
+
+router.get("/logout", (req, res) => {
+	LogoutUser(req, res);
 });
 
 export { router as AuthRoutes };
