@@ -50,7 +50,7 @@ export const AddColor = async (req, res) => {
 };
 
 export const GetColors = async (req, res) => {
-	const userId = req.params.userId;
+	const userId = req.query.userId;
 	const response = await prisma.color.findFirst({
 		where: {
 			userId: userId,
