@@ -10,7 +10,7 @@ function Home() {
 		navigate("/generate");
 	};
 	return (
-		<div className="md:mt-0 mt-16 bg-dark md:h-screen h-full w-full flex md:flex-row flex-col">
+		<div className="lg:mt-0 mt-16 bg-dark lg:h-screen h-[calc(100vh-4rem)] w-full flex lg:flex-row flex-col">
 			<section className="p-5 text-light flex flex-col lg:gap-10 gap-5 self-center">
 				<h1 className="font-primary text-3xl lg:text-5xl font-light">
 					Discover Endless Hues with Huey's Palette Generator
